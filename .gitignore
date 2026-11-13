@@ -1,0 +1,81 @@
+# ----------------------------------------------------------------------
+# 1. macOS
+# ----------------------------------------------------------------------
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Icon?
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ----------------------------------------------------------------------
+# 2. Editors / AI tools
+# ----------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.zed/
+.cursor/
+*.sublime-project
+*.sublime-workspace
+.sublime/
+*.swp
+*~
+.claude/settings.local.json
+.superdesign/tmp/
+
+# ----------------------------------------------------------------------
+# 3. Secrets / deployment config
+# ----------------------------------------------------------------------
+# API keys (ANTHROPIC_API_KEY etc.) live here — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+sftp-config.json
+.ftpconfig
+.vscode/sftp.json
+
+# ----------------------------------------------------------------------
+# 4. Node / SvelteKit / Vite
+# ----------------------------------------------------------------------
+/node_modules/
+/.svelte-kit/
+/build/
+/dist/
+/package/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.npm/
+.eslintcache
+*.tsbuildinfo
+/coverage/
+
+# ----------------------------------------------------------------------
+# 5. Logs, transcripts and local chatbot data
+# ----------------------------------------------------------------------
+*.log
+npm-debug.log*
+logs/
+/transcripts/
+/conversations/
+*.jsonl
+/data/
+*.db
+*.sqlite
+*.sqlite3
+/.cache/
+/tmp/

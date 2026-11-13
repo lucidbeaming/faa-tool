@@ -1,0 +1,40 @@
+{
+	"name": "faa-tool",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Novelty chatbot simulating an inter-facility ATC coordination tool - SvelteKit",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"start": "node --env-file=.env build",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"lint": "eslint .",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"@langchain/core": "^1.4.1",
+		"@langchain/mistralai": "^1.2.0",
+		"@sveltejs/adapter-node": "^5.5.8",
+		"@sveltejs/kit": "^2.70.4",
+		"@sveltejs/vite-plugin-svelte": "^5.1.1",
+		"marked": "^15.0.12",
+		"svelte": "^5.57.3",
+		"vite": "^6.4.6"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@tailwindcss/vite": "^4.3.5",
+		"eslint": "^10.15.0",
+		"eslint-plugin-svelte": "^3.24.1",
+		"globals": "^17.14.0",
+		"prettier": "^3.10.1",
+		"prettier-plugin-svelte": "^3.5.2",
+		"svelte-check": "^4.7.8",
+		"tailwindcss": "^4.3.5",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.72.2"
+	}
+}

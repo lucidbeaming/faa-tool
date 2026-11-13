@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+:root {
+	--scope-bg: #05110a;
+	--scope-panel: #0a1a10;
+	--scope-line: #1d3b27;
+	--scope-green: #39ff7a;
+	--scope-green-dim: #2a9d52;
+	--scope-amber: #ffbf3c;
+	--scope-text: #c9f5d6;
+	--scope-muted: #6f9c7e;
+	--scope-font: 'SF Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', Consolas, monospace;
+}
+
+html,
+body {
+	background: var(--scope-bg);
+	color: var(--scope-text);
+	font-family: var(--scope-font);
+}
