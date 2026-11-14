@@ -2,25 +2,65 @@
 	import FaaChat from '$lib/components/FaaChat.svelte';
 	import { asset } from '$app/paths';
 
-	const pageTitle = 'Big Bird Talk | Joshua Curry';
+	const pageTitle = 'FAA communication AI';
 	const pageDescription =
-		'A novelty caveman chatbot that imitates a coordination line between air traffic control facilities.';
+		"A caveman AI chatbot that explains the November 2026 FAA communication outage and nationwide ground stop using rocks, rivers and birds. It's a joke.";
+	const pageUrl = 'https://joshuacurry.dev/faa-tool/';
+	const imageUrl = 'https://joshuacurry.dev/faa-tool/og-image.png';
+	const imageAlt =
+		'Big Bird Talk emblem, a gold bird over mountains in a navy and gold ring, on an orange background beside the words FAA communication AI';
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebApplication',
+		name: pageTitle,
+		url: pageUrl,
+		description: pageDescription,
+		image: imageUrl,
+		applicationCategory: 'EntertainmentApplication',
+		operatingSystem: 'Any',
+		isAccessibleForFree: true,
+		author: { '@type': 'Person', name: 'Joshua Curry', url: 'https://joshuacurry.dev' },
+		creator: { '@type': 'Person', name: 'Joshua Curry', url: 'https://joshuacurry.dev' }
+	};
+	// Escape "<" so the JSON can't close the script tag early
+	const jsonLdHtml = `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</${'script'}>`;
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
-	<meta property="og:title" content={pageTitle} />
+	<meta name="author" content="Joshua Curry" />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<meta name="theme-color" content="#ff6600" />
+	<link rel="canonical" href={pageUrl} />
+
 	<meta property="og:type" content="website" />
-	<meta property="og:description" content={pageDescription} />
-	<meta property="og:url" content="https://joshuacurry.dev/faa-tool" />
 	<meta property="og:site_name" content="Joshua Curry" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:url" content={pageUrl} />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
+	<meta property="og:image" content={imageUrl} />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={imageAlt} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={pageDescription} />
+	<meta name="twitter:image" content={imageUrl} />
+	<meta name="twitter:image:alt" content={imageAlt} />
+
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html jsonLdHtml}
 </svelte:head>
 
 <main class="max-w-6xl mx-auto px-4 py-8 md:py-12">
 	<header class="bbt-banner">
-		<h1>Big Bird Talk</h1>
-		<p>Sky-cave coordination line · simulation</p>
+		<h1>FAA communication AI</h1>
+		<p>Sky-cave coordination line · It's a joke</p>
 	</header>
 	<div class="faa-page grid grid-cols-1 md:grid-cols-2 gap-6">
 		<div class="faa-col">
