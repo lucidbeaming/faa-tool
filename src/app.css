@@ -1,20 +1,22 @@
 @import 'tailwindcss';
 
+/* Palette borrowed from an orange agency-style flag: orange field, navy ring, gold trim, green disc */
 :root {
-	--scope-bg: #05110a;
-	--scope-panel: #0a1a10;
-	--scope-line: #1d3b27;
-	--scope-green: #39ff7a;
-	--scope-green-dim: #2a9d52;
-	--scope-amber: #ffbf3c;
-	--scope-text: #c9f5d6;
-	--scope-muted: #6f9c7e;
-	--scope-font: 'SF Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', Consolas, monospace;
+	--bbt-orange: #ff6600;
+	--bbt-navy: #091f62;
+	--bbt-gold: #d4b76a;
+	--bbt-gold-dark: #a87b00;
+	--bbt-green: #0a6826;
+	--bbt-paper: #fbf8f1;
+	--bbt-line: #ddd5c2;
+	--bbt-ink: #1b2340;
+	--bbt-muted: #4a5578;
+	--bbt-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 html,
 body {
-	background: var(--scope-bg);
-	color: var(--scope-text);
-	font-family: var(--scope-font);
+	background: var(--bbt-orange);
+	color: var(--bbt-ink);
+	font-family: var(--bbt-font);
 }

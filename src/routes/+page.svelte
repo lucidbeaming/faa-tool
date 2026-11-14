@@ -1,22 +1,10 @@
 <script lang="ts">
 	import FaaChat from '$lib/components/FaaChat.svelte';
+	import { asset } from '$app/paths';
 
-	// Fictional targets painted on the scope: polar position + data block
-	const targets = [
-		{ angle: 38, r: 0.62, tag: 'UAL123', alt: '370' },
-		{ angle: 112, r: 0.34, tag: 'SWA88', alt: '120' },
-		{ angle: 201, r: 0.78, tag: 'DAL1902', alt: '350' },
-		{ angle: 263, r: 0.48, tag: 'N512KR', alt: '045' },
-		{ angle: 318, r: 0.85, tag: 'AAL17', alt: '390' },
-		{ angle: 154, r: 0.7, tag: 'ASA301', alt: '240' }
-	].map((t) => {
-		const rad = ((t.angle - 90) * Math.PI) / 180;
-		return { ...t, x: 50 + Math.cos(rad) * t.r * 46, y: 50 + Math.sin(rad) * t.r * 46 };
-	});
-
-	const pageTitle = 'FAA-TOOL | Joshua Curry';
+	const pageTitle = 'Big Bird Talk | Joshua Curry';
 	const pageDescription =
-		'A novelty chatbot that imitates an inter-facility coordination line between air traffic control facilities.';
+		'A novelty caveman chatbot that imitates a coordination line between air traffic control facilities.';
 </script>
 
 <svelte:head>
@@ -30,65 +18,56 @@
 </svelte:head>
 
 <main class="max-w-6xl mx-auto px-4 py-8 md:py-12">
-	<header class="faa-banner">
-		<h1>FAA-TOOL</h1>
-		<p>Inter-facility coordination line · simulation</p>
+	<header class="bbt-banner">
+		<h1>Big Bird Talk</h1>
+		<p>Sky-cave coordination line · simulation</p>
 	</header>
-	<div class="faa-page grid grid-cols-1 md:grid-cols-2 gap-4">
+	<div class="faa-page grid grid-cols-1 md:grid-cols-2 gap-6">
 		<div class="faa-col">
-			<div class="scope" aria-hidden="true">
-				<svg viewBox="0 0 100 100">
-					<circle cx="50" cy="50" r="46" class="ring" />
-					<circle cx="50" cy="50" r="34.5" class="ring" />
-					<circle cx="50" cy="50" r="23" class="ring" />
-					<circle cx="50" cy="50" r="11.5" class="ring" />
-					<line x1="50" y1="4" x2="50" y2="96" class="ring" />
-					<line x1="4" y1="50" x2="96" y2="50" class="ring" />
-					<g class="sweep">
-						<path d="M50 50 L50 4 A46 46 0 0 1 82.5 17.5 Z" class="sweep-fill" />
-						<line x1="50" y1="50" x2="50" y2="4" class="sweep-line" />
-					</g>
-					{#each targets as t (t.tag)}
-						<g class="target" style="animation-delay: {(t.angle / 360) * 6}s">
-							<rect x={t.x - 0.9} y={t.y - 0.9} width="1.8" height="1.8" />
-							<text x={t.x + 2} y={t.y - 1.2}>{t.tag}</text>
-							<text x={t.x + 2} y={t.y + 2.2}>{t.alt}</text>
-						</g>
-					{/each}
-				</svg>
-			</div>
+			<img
+				class="emblem"
+				src={asset('/big-bird-talk.svg')}
+				alt="Big Bird Talk emblem: a gold bird flying over mountains and a river, ringed in navy and gold"
+				width="400"
+				height="400"
+			/>
 		</div>
 		<div class="faa-col">
 			<FaaChat />
 		</div>
 	</div>
-	<p class="faa-disclaimer">
-		Novelty project. Not affiliated with or endorsed by the FAA. Not for real-world flight
-		operations. Responses are AI-generated and fictional.
+	<p class="bbt-disclaimer">
+		Novelty project. Not affiliated with or endorsed by the FAA or any government agency. Not for
+		real-world flight operations. Responses are AI-generated and fictional.
 	</p>
 </main>
 
 <style>
-	.faa-banner {
-		margin-bottom: 1rem;
+	.bbt-banner {
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 3px solid var(--bbt-navy);
 	}
-	.faa-banner h1 {
-		font-size: 1.25rem;
-		font-weight: 700;
-		letter-spacing: 0.2em;
-		color: var(--scope-green);
-	}
-	.faa-banner p {
-		font-size: 0.7rem;
+	.bbt-banner h1 {
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		font-weight: 800;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: var(--scope-muted);
+		color: var(--bbt-navy);
+		line-height: 1.1;
 	}
-	.faa-disclaimer {
+	.bbt-banner p {
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--bbt-navy);
+	}
+	.bbt-disclaimer {
 		margin-top: 1.5rem;
-		font-size: 0.7rem;
-		color: var(--scope-muted);
-		max-width: 60ch;
+		font-size: 0.75rem;
+		color: var(--bbt-navy);
+		max-width: 62ch;
 	}
 
 	.faa-page {
@@ -104,10 +83,11 @@
 			height: 80vh;
 		}
 	}
-	/* single column: two equal rows so each section fills half height */
+	/* single column: emblem row shrinks, chat gets the rest */
 	@media (max-width: 767px) {
 		.faa-page {
-			grid-template-rows: 1fr 1fr;
+			height: auto;
+			grid-template-rows: auto 70vh;
 		}
 	}
 
@@ -121,73 +101,19 @@
 		justify-content: center;
 	}
 
-	/* radar scope */
-	.scope {
+	.emblem {
+		display: block;
 		width: 100%;
+		max-width: 460px;
 		max-height: 100%;
-		aspect-ratio: 1;
+		height: auto;
 		margin: auto;
-		border-radius: 50%;
-		background: radial-gradient(circle, #0b2414 0%, var(--scope-bg) 70%);
-		box-shadow:
-			inset 0 0 40px rgba(57, 255, 122, 0.08),
-			0 0 0 2px var(--scope-line);
+		object-fit: contain;
+		filter: drop-shadow(0 12px 24px rgba(9, 31, 98, 0.35));
 	}
-	.scope svg {
-		width: 100%;
-		height: 100%;
-	}
-	.ring {
-		fill: none;
-		stroke: var(--scope-line);
-		stroke-width: 0.3;
-	}
-	.sweep {
-		transform-origin: 50px 50px;
-		animation: sweep 6s linear infinite;
-	}
-	.sweep-fill {
-		fill: rgba(57, 255, 122, 0.12);
-	}
-	.sweep-line {
-		stroke: var(--scope-green);
-		stroke-width: 0.4;
-	}
-	.target {
-		fill: var(--scope-green);
-		animation: paint 6s linear infinite;
-	}
-	.target text {
-		font-family: var(--scope-font);
-		font-size: 2.4px;
-	}
-
-	@keyframes sweep {
-		to {
-			transform: rotate(360deg);
-		}
-	}
-	/* blip brightens as the sweep passes, then decays */
-	@keyframes paint {
-		0% {
-			opacity: 1;
-		}
-		70% {
-			opacity: 0.25;
-		}
-		100% {
-			opacity: 0.25;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.sweep {
-			animation: none;
-			transform: rotate(40deg);
-		}
-		.target {
-			animation: none;
-			opacity: 0.85;
+	@media (max-width: 767px) {
+		.emblem {
+			max-width: 240px;
 		}
 	}
 

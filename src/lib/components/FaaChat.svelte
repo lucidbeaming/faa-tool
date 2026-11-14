@@ -109,14 +109,14 @@
 					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					{@html customIntro}
 				{:else}
-					<p class="faa-greeting">{facility.id} ON LINE</p>
-					<p>GO AHEAD.</p>
+					<p class="faa-greeting">{facility.id} CAVE ON LINE</p>
+					<p>UGH. YOU TALK. ME LISTEN.</p>
 				{/if}
 			</div>
 			{#if messages.length === 0}
 				<div class="faa-examples">
 					<span class="faa-examples-label">Try sending</span>
-					{#each ['APREQ UAL123 KSFO-KJFK, REQ FL370', 'WHAT ARE YOU LANDING?', 'ANY RESTRICTIONS FOR THE NEXT HOUR?'] as q (q)}
+					{#each ['WHY ARE THE FLIGHTS GROUNDED?', 'APREQ UAL123 KSFO-KJFK, REQ FL370', 'WHAT ARE YOU LANDING?'] as q (q)}
 						<button
 							class="faa-example-chip"
 							onclick={() => {
@@ -171,7 +171,7 @@
 				class="faa-send"
 				aria-label="Send message"
 			>
-				XMIT
+				TALK
 			</button>
 		</div>
 	</div>
@@ -183,14 +183,12 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		border-radius: 6px;
-		background: var(--scope-panel);
-		border: 1px solid var(--scope-line);
-		box-shadow:
-			0 0 0 1px rgba(57, 255, 122, 0.04),
-			0 8px 24px rgba(0, 0, 0, 0.4);
+		border-radius: 10px;
+		background: #fff;
+		border: 3px solid var(--bbt-gold-dark);
+		box-shadow: 0 10px 30px rgba(9, 31, 98, 0.25);
 		overflow: hidden;
-		font-family: var(--scope-font);
+		font-family: var(--bbt-font);
 	}
 
 	/* Header */
@@ -200,8 +198,8 @@
 		justify-content: space-between;
 		gap: 0.75rem;
 		padding: 0.75rem 1rem;
-		background: #08160d;
-		border-bottom: 1px solid var(--scope-line);
+		background: var(--bbt-navy);
+		border-bottom: 3px solid var(--bbt-gold);
 	}
 	.faa-header-left {
 		display: flex;
@@ -210,15 +208,15 @@
 		min-width: 0;
 	}
 	.faa-avatar {
-		min-width: 2.5rem;
-		height: 2rem;
-		padding: 0 0.375rem;
-		border-radius: 4px;
-		border: 1px solid var(--scope-green-dim);
-		color: var(--scope-green);
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		border: 2px solid var(--bbt-gold);
+		background: var(--bbt-green);
+		color: #fff;
 		font-weight: 700;
-		font-size: 0.75rem;
-		letter-spacing: 0.05em;
+		font-size: 0.7rem;
+		letter-spacing: 0.04em;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -227,18 +225,18 @@
 	.faa-title {
 		display: block;
 		font-weight: 700;
-		font-size: 0.85rem;
-		color: var(--scope-text);
+		font-size: 0.9rem;
+		color: #fff;
 		line-height: 1.2;
 		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.06em;
 	}
 	.faa-status {
 		display: flex;
 		align-items: center;
 		gap: 0.3rem;
-		font-size: 0.65rem;
-		color: var(--scope-muted);
+		font-size: 0.7rem;
+		color: var(--bbt-gold);
 		line-height: 1;
 		letter-spacing: 0.06em;
 	}
@@ -246,22 +244,23 @@
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background: var(--scope-green);
+		background: #5be37f;
 		display: inline-block;
 		animation: pulse-dot 2.4s ease-in-out infinite;
 	}
 	.faa-select {
-		background: var(--scope-bg);
-		color: var(--scope-text);
-		border: 1px solid var(--scope-line);
-		border-radius: 4px;
+		background: #fff;
+		color: var(--bbt-navy);
+		border: 2px solid var(--bbt-gold);
+		border-radius: 6px;
 		padding: 0.3rem 0.5rem;
 		font-family: inherit;
 		font-size: 0.75rem;
+		font-weight: 600;
 	}
 	.faa-select:focus-visible {
-		outline: 2px solid var(--scope-green);
-		outline-offset: 1px;
+		outline: 2px solid #fff;
+		outline-offset: 2px;
 	}
 
 	/* Messages */
@@ -273,43 +272,49 @@
 		flex-direction: column;
 		gap: 0.625rem;
 		scroll-behavior: smooth;
+		background: var(--bbt-paper);
 	}
 	.faa-messages::-webkit-scrollbar {
 		width: 4px;
 	}
 	.faa-messages::-webkit-scrollbar-thumb {
-		background: var(--scope-line);
+		background: var(--bbt-line);
 		border-radius: 4px;
 	}
 
 	/* Bubbles */
 	.faa-bubble {
 		max-width: 88%;
-		padding: 0.5rem 0.75rem;
-		border-radius: 4px;
-		font-size: 0.8rem;
+		padding: 0.5rem 0.8rem;
+		border-radius: 12px;
+		font-size: 0.875rem;
 		line-height: 1.5;
-		color: var(--scope-text);
+		color: var(--bbt-ink);
 		word-break: break-word;
-		text-transform: uppercase;
 	}
 	.faa-bubble-assistant {
 		align-self: flex-start;
-		background: rgba(57, 255, 122, 0.06);
-		border-left: 2px solid var(--scope-green-dim);
+		background: #fff;
+		border: 1px solid var(--bbt-line);
+		border-left: 4px solid var(--bbt-green);
+		border-bottom-left-radius: 4px;
 	}
 	.faa-bubble-user {
 		align-self: flex-end;
-		background: rgba(255, 191, 60, 0.08);
-		border-right: 2px solid var(--scope-amber);
-		color: #ffe2a6;
+		background: var(--bbt-navy);
+		color: #fff;
+		border-bottom-right-radius: 4px;
 	}
 	.faa-from {
 		display: block;
-		font-size: 0.6rem;
+		font-size: 0.65rem;
+		font-weight: 700;
 		letter-spacing: 0.1em;
-		color: var(--scope-muted);
+		color: var(--bbt-green);
 		margin-bottom: 0.125rem;
+	}
+	.faa-bubble-user .faa-from {
+		color: var(--bbt-gold);
 	}
 
 	/* Intro */
@@ -318,7 +323,8 @@
 	}
 	.faa-greeting {
 		font-weight: 700;
-		color: var(--scope-green);
+		color: var(--bbt-navy);
+		letter-spacing: 0.04em;
 		margin-bottom: 0.25rem;
 	}
 	.faa-intro p {
@@ -333,31 +339,33 @@
 		margin-top: 0.25rem;
 	}
 	.faa-examples-label {
-		font-size: 0.65rem;
-		color: var(--scope-muted);
+		font-size: 0.7rem;
+		font-weight: 700;
+		color: var(--bbt-muted);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
 	.faa-example-chip {
 		align-self: flex-start;
-		background: none;
-		border: 1px solid var(--scope-line);
-		border-radius: 4px;
-		padding: 0.3rem 0.6rem;
-		font-size: 0.75rem;
-		color: var(--scope-text);
+		background: #fff;
+		border: 2px solid var(--bbt-navy);
+		border-radius: 999px;
+		padding: 0.3rem 0.75rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--bbt-navy);
 		cursor: pointer;
 		font-family: inherit;
 		text-align: left;
 		transition:
-			border-color 0.15s,
+			background 0.15s,
 			color 0.15s;
 		line-height: 1.4;
 	}
 	.faa-example-chip:hover,
 	.faa-example-chip:focus-visible {
-		border-color: var(--scope-green);
-		color: var(--scope-green);
+		background: var(--bbt-navy);
+		color: #fff;
 	}
 
 	/* Message enter */
@@ -373,17 +381,18 @@
 		padding: 0.125rem 0.25rem;
 	}
 	.faa-typing span {
-		width: 6px;
-		height: 6px;
-		background: var(--scope-green);
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--bbt-green);
 		opacity: 0.5;
-		animation: typing-blink 1.2s steps(2) infinite;
+		animation: typing-bounce 1.2s ease-in-out infinite;
 	}
 	.faa-typing span:nth-child(2) {
-		animation-delay: 0.2s;
+		animation-delay: 0.15s;
 	}
 	.faa-typing span:nth-child(3) {
-		animation-delay: 0.4s;
+		animation-delay: 0.3s;
 	}
 
 	/* Input bar */
@@ -392,57 +401,56 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.625rem 0.75rem;
-		border-top: 1px solid var(--scope-line);
-		background: #08160d;
+		border-top: 1px solid var(--bbt-line);
+		background: #fff;
 	}
 	.faa-input {
 		flex: 1;
 		min-width: 0;
-		border: 1px solid var(--scope-line);
-		border-radius: 4px;
+		border: 2px solid var(--bbt-line);
+		border-radius: 8px;
 		padding: 0.5rem 0.75rem;
-		font-size: 0.8rem;
+		font-size: 0.875rem;
 		font-family: inherit;
-		text-transform: uppercase;
-		color: var(--scope-text);
-		background: var(--scope-bg);
+		color: var(--bbt-ink);
+		background: #fff;
 		outline: none;
 		transition: border-color 0.15s;
 	}
 	.faa-input::placeholder {
-		color: var(--scope-muted);
+		color: var(--bbt-muted);
 	}
 	.faa-input:focus {
-		border-color: var(--scope-green);
-		box-shadow: 0 0 0 2px rgba(57, 255, 122, 0.15);
+		border-color: var(--bbt-navy);
+		box-shadow: 0 0 0 3px rgba(9, 31, 98, 0.15);
 	}
 	.faa-input:disabled {
 		opacity: 0.5;
 	}
 	.faa-send {
-		height: 2.25rem;
-		padding: 0 0.875rem;
-		border-radius: 4px;
-		border: 1px solid var(--scope-green-dim);
-		background: rgba(57, 255, 122, 0.1);
-		color: var(--scope-green);
+		height: 2.4rem;
+		padding: 0 1rem;
+		border-radius: 8px;
+		border: 2px solid var(--bbt-gold);
+		background: var(--bbt-navy);
+		color: #fff;
 		font-family: inherit;
 		font-weight: 700;
-		font-size: 0.75rem;
+		font-size: 0.8rem;
 		letter-spacing: 0.08em;
 		cursor: pointer;
 		flex-shrink: 0;
 		transition: background 0.15s;
 	}
 	.faa-send:hover:not(:disabled) {
-		background: rgba(57, 255, 122, 0.2);
+		background: var(--bbt-green);
 	}
 	.faa-send:focus-visible {
-		outline: 2px solid var(--scope-green);
-		outline-offset: 1px;
+		outline: 3px solid var(--bbt-orange);
+		outline-offset: 2px;
 	}
 	.faa-send:disabled {
-		opacity: 0.3;
+		opacity: 0.35;
 		cursor: not-allowed;
 	}
 
@@ -458,17 +466,16 @@
 		margin: 0.25em 0;
 		padding-left: 1.25em;
 	}
-	.chat-prose :global(code) {
-		color: var(--scope-green);
-	}
 	.chat-prose :global(strong) {
 		font-weight: 700;
-		color: var(--scope-green);
 	}
 	.chat-prose :global(a) {
-		color: var(--scope-green);
+		color: var(--bbt-navy);
+		font-weight: 700;
 		text-decoration: underline;
-		text-underline-offset: 2px;
+		text-decoration-color: var(--bbt-orange);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
 	}
 
 	/* Keyframes */
@@ -491,11 +498,15 @@
 			opacity: 0.4;
 		}
 	}
-	@keyframes typing-blink {
-		0% {
-			opacity: 0.2;
-		}
+	@keyframes typing-bounce {
+		0%,
+		60%,
 		100% {
+			transform: translateY(0);
+			opacity: 0.4;
+		}
+		30% {
+			transform: translateY(-4px);
 			opacity: 1;
 		}
 	}
