@@ -13,7 +13,7 @@ module.exports = {
 			merge_logs: true,
 			exec_mode: 'fork',
 			env: {
-				PORT: 9002,
+				PORT: 9004,
 				HOST: '127.0.0.1',
 				NODE_ENV: 'production',
 				ORIGIN: 'https://joshuacurry.dev',

@@ -33,13 +33,13 @@ SvelteKit app. The parent repo ignores `/faa-tool/`.
 
 - `svelte.config.js` sets `paths.base = '/faa-tool'`, so every route and asset is
   served under `/faa-tool`.
-- It runs on port **9002** (the parent uses 9001).
-- The reverse proxy should forward `/faa-tool` to `127.0.0.1:9002` **without stripping
+- It runs on port **9004** (the parent uses 9001).
+- The reverse proxy should forward `/faa-tool` to `127.0.0.1:9004` **without stripping
   the prefix**, e.g. nginx:
 
   ```nginx
   location /faa-tool {
-      proxy_pass http://127.0.0.1:9002;
+      proxy_pass http://127.0.0.1:9004;
       proxy_set_header Host $host;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header X-Forwarded-Proto $scheme;
@@ -51,7 +51,7 @@ SvelteKit app. The parent repo ignores `/faa-tool/`.
 ```sh
 cp .env.example .env      # add MISTRAL_API_KEY
 npm install
-npm run dev               # http://localhost:9002/faa-tool
+npm run dev               # http://localhost:9004/faa-tool
 ```
 
 ## Production
