@@ -1,5 +1,7 @@
 # FAA-TOOL
 
+> **Retired.** This was a short-lived novelty and won't be released. The repository is archived and kept for reference.
+
 A novelty chatbot that imitates a text-based coordination line between air traffic
 control facilities (centers, TRACONs, towers, the Command Center). Pick a remote facility
 and message it; a Mistral model replies in character.
